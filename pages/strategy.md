@@ -29,9 +29,9 @@ contains motivational guidelines in the areas of Ethical Governance, Conscious
 Design, and a Learning Culture.
 
 [Federal Data Strategy Practices](https://strategy.data.gov/practices/) are
-goals designed to inform and guide agency actions to improve the government’s
+goals designed to inform and guide agency actions to improve the Government’s
 approach to data stewardship and use.
 
 [Federal Data Strategy Action Plan](https://strategy.data.gov/action-plan/)
-describes specific government-wide and agency commitments supporting the Federal
+describes specific Government-wide and agency commitments supporting the Federal
 Data Strategy.
