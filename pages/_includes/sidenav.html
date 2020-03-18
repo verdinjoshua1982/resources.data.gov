@@ -1,0 +1,24 @@
+{% if page.secondary_nav %}
+<aside class="usa-layout__docs-sidenav desktop:grid-col-3 margin-top-4 desktop:margin-top-0 padding-top-4 order-last desktop:padding-top-0 desktop:order-first border-base border-top desktop:border-top-0">
+  <nav>
+    <ul class="usa-sidenav font-family-sans font-sans-2xs {% if _pages.size < 2 %}border-bottom-0{% endif %}">
+      {% for nav in page.secondary_nav %}
+        <li class="usa-sidenav__item">
+          {% if nav.children %}
+            <a href="javascript:void(0)">{{ nav.text | escape }}</a>
+            <ul class="usa-sidenav__sublist">
+              {% for child in nav.children %}
+                <li class="usa-sidenav__item">
+                  <a href="{{ child.url }}">{{ child.text | escape }}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <a href="{{ nav.url }}">{{ nav.text | escape }}</a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</aside>
+{% endif %}

@@ -1,0 +1,30 @@
+- text: Policy
+  url: /strategy/
+- text: Categories
+  url: /categories/
+- text: Tags
+  url: /tags/
+- text: Tools
+  url: /tools/
+- text: Communities
+  url: /communities/
+- text: Resources
+  children:
+    - text: Case studies
+      url: /case-studies/
+    - text: Playbooks
+      url: /playbooks/
+    - text: Guidance
+      url: /guidance/
+    - text: Skill builders
+      url: /skill-builders/
+    - text: Standards
+      url: /standards/
+- text: About
+  children:
+    - text: History
+      url: /history/
+    - text: Requirements
+      url: /requirements/
+    - text: Governance
+      url: /governance/

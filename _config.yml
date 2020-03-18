@@ -1,0 +1,53 @@
+title: Federal Enterprise Data Resources
+email: datagov@gsa.gov
+description: >-
+  Federal Enterprise Data Resources are tools, best practices, and schema standards to facilitate the adoption of open data practices across the federal government
+baseurl: "" # the subpath of your site, e.g. /blog
+url: https://resources.data.gov
+twitter_username: usdatagov
+github_username:  gsa
+dap_agency: GSA
+searchgov_affiliate: datagov-resources
+
+github:
+  organization: GSA
+  repository: resources.data.gov
+  default_branch: develop
+
+styles:
+  - assets/uswds/css/styles.css
+
+# Build settings
+markdown: kramdown
+permalink: pretty
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+source: pages
+
+keep_files:
+  - assets/js
+  - assets/uswds
+
+exclude:
+  - CONTRIBUTING.md
+  - LICENSE.md
+  - README.md
+  - _js
+  - _scss
+  - Gemfile
+  - Gemfile.lock
+  - gulpfile.js
+  - node_modules
+  - package-lock.json
+  - package.json
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+page_categories: [Policy, Data Management, Data Governance, Working with Data, Workforce Development, Data Standards, Data Inventories, Data Validation]
+page_tags: [API, web interface, data aggregation, Python, Community of practice, open data, FDS, Evidence Act, Procurement, ERM, CDO Council, Culture change, data analysis, DATA ACT, data validation, data sharing, data literacy, FOIA, data viz, data cleaning, metadata, PRA, data.gov, geospatial ]
+page_tags.format: [Case study, Glossary, Software tool, Best practice, Standard/schema, Form/template, Report]
+
+
