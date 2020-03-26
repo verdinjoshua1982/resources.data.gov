@@ -1,9 +1,9 @@
 ---
 title: JSON Validator
 layout: page
-categories: [Data Validation]
+categories: [Hands-on]
 tags: [Software tool,
-metadata, schema, data inventory, JSON]
+metadata, schema, data inventory, JSON, Data Validation]
 ---
 #### Categories
 {{ page.categories }}

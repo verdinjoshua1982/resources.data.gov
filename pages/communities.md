@@ -1,8 +1,9 @@
 ---
 title: Communities of Practice
 layout: page
-categories: [Working with data]
+categories: [CoP]
 tags: [Community of practice, open data]
+formats: []
 ---
 
 ###### (From Resources-Standards-Communities section)

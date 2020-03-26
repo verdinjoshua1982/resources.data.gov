@@ -1,20 +1,27 @@
 ---
 title: ReVAL
 layout: page
-categories: [Data Validation]
-tags.format: [Software tool]
-tags: [API, web interface, data aggregation, Python]
+categories: [Hands-on]
+format: [Software tool]
+tags: [API, web interface, data aggregation, Python, data validation]
 ---
 #### Categories
+
 {{ page.categories }}
 
 #### Tags
-    {% for tag in page.tags %}
+
+{% assign siteTags = site.page_tags %}
+{% for tag in page.tags %}
+  {% if siteTags contains tag %}
     {{ tag }}
-    {% endfor %}
+  {% endif %}
+{% endfor %}
 
 #### Format
-    {{ page.tags.format }}
+
+  {{ page.format }}
+
 
 ## Description
 ReVAL (Reusable Validation & Aggregation Library) is a Django App for validating and aggregating data via API and web interface.
