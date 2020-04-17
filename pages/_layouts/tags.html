@@ -1,0 +1,81 @@
+---
+layout: default
+---
+
+{% comment %}
+=======================
+The following part extracts all the tags from your posts and sort tags, so that you do not need to manually collect your tags to a place.
+=======================
+{% endcomment %}
+{% assign rawtags = "" %}
+{% for post in site.posts %}
+    {% assign ttags = post.tags | join:'|' | append:'|' %}
+    {% assign rawtags = rawtags | append:ttags %}
+{% endfor %}
+{% assign rawtags = rawtags | split:'|' | sort %}
+
+{% comment %}
+=======================
+The following part removes dulpicated tags and invalid tags like blank tag.
+=======================
+{% endcomment %}
+{% assign tags = "" %}
+{% for tag in rawtags %}
+    {% if tag != "" %}
+        {% if tags == "" %}
+            {% assign tags = tag | split:'|' %}
+        {% endif %}
+        {% unless tags contains tag %}
+            {% assign tags = tags | join:'|' | append:'|' | append:tag | split:'|' %}
+        {% endunless %}
+    {% endif %}
+{% endfor %}
+
+
+{% if page.breadcrumb_nav %}
+  {% assign breadcrumb_nav = "breadcrumb-page" %}
+{% else %}
+    {% assign breadcrumb_nav = "" %}
+{% endif %}
+
+<main class="usa-layout-docs usa-section {{ breadcrumb_nav }}" id="main-content">
+  <div class="grid-container">
+    {% include breadcrumb.html %}
+    <div class="grid-row grid-gap">
+      {% include sidenav.html %}
+      <div class="usa-layout__docs-main desktop:grid-col-9 usa-prose">
+        <h1>{{ page.title }}</h1>
+
+        {% for tag in tags %}
+            <a href="#{{ tag | slugify }}"> {{ tag }} </a> &nbsp;
+        {% endfor %}
+
+
+        {% comment %}
+        =======================
+        The purpose of this snippet is to list all your posts posted with a certain tag.
+        =======================
+        {% endcomment %}
+        {% for tag in tags %}
+            <h2 id="{{ tag | slugify }}">{{ tag }}</h2>
+            <ul>
+             {% for post in site.posts %}
+                 {% if post.tags contains tag %}
+                 <li>
+                 <h3>
+                 <a href="{{ post.url | prepend: site.baseurl }}">
+                 {{ post.title }}
+                 <small>{{ post.date | date_to_string }}</small>
+                 </a>
+                 </h3>
+                 </li>
+                 {% endif %}
+             {% endfor %}
+            </ul>
+        {% endfor %}
+
+
+      </div>
+    </div>
+  </div>
+</main>
