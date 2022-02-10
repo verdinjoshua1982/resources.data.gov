@@ -1,4 +1,4 @@
----
+---Joshua Verdin
 redirect_from: /schemas/dcat-us/v1.1/
 resource_name: DCAT-US Schema v1.1 (Project Open Data Metadata Schema)
 slug: dcat-us
