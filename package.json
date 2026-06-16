@@ -1,5 +1,5 @@
 {
-    "name": "resources.data.gov",
+    "name": "@gsa/resources-data-gov",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
