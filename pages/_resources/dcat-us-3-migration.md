@@ -30,37 +30,58 @@ details: >+
 
 
   
+    
   ### Overview
-
+  
+  
+  This guide covers the changes needed to make your existing v1.1 `data.json` file valid against the v3.0 schema. Each step below describes what needs to change and why.
+  
+  
+  If your agency has a developer or IT team, there is also a Python script that can automate these changes for you. See [Using the migration script](#using-the-migration-script) below.
+  
+  
+  After completing all steps, run your updated `data.json` against the v3.0 validator: <https://harvest.data.gov/validate/>
+  
+  
+  ---
+  
+  ### Using the migration script
+  
+  
+  A Python script is available that automates the field translations described in this guide. If your agency has a developer or IT staff, they can use this script to convert your agency's `data.json` file automatically instead of making changes manually.
 
   
-  This guide covers the minimum changes needed to make your existing v1.1 `data.json` file valid against the v3.0 schema. Work through the steps in order — steps 1 through 4 address breaking changes that will cause validation failures. Steps 5 through 8 are structural changes required for correct v3.0 implementation.
-
+  **What is a Python script?** Python is a widely used programming language. A `.py` file is a program written in Python. Your agency's developers can run it from a command line without needing special software beyond a standard Python installation.
 
   
-  After completing all steps, run your updated `data.json` against the v3.0 validation script: https://harvest.data.gov/validate/
+  There are two files in the [GSA/dcat-us](https://github.com/GSA/dcat-us/tree/main/jsonschema) repository:
 
+  
+  - [**transforms.py**](https://github.com/GSA/dcat-us/blob/main/jsonschema/transforms.py) contains the individual translation functions, one per field. Developers who want to integrate the migration logic into their own systems can use these functions directly.
+
+  
+  - [**convert_dcat_1_1_to_3_0.py**](https://github.com/GSA/dcat-us/blob/main/jsonschema/convert_dcat_1_1_to_3_0.py) is the full conversion tool. It fetches your agency's catalog from a URL, runs all the field transformations, validates the result against the v3.0 schema, and writes the converted catalog to a file.
+
+  
+  **Important:** The conversion tool fetches your catalog from a live URL. Your agency's `data.json` file must be publicly accessible on the web for the script to work. It cannot read a file from your local computer.
+
+  
+  Your agency can use these scripts as-is, adapt them, or use them as a reference when building your own migration process. Data.gov does not run these scripts on behalf of agencies.
 
   
   ---
 
-
   
   ### Breaking changes — fix these first
-
 
   
   These are changes where your existing v1.1 values will fail v3.0 schema validation.
 
-
   
   #### Step 1 — Fix `modified`
 
-
   
   If you use repeating intervals like `R/P1D` or `R/P1Y` in `modified`, replace them with the actual date the data last changed. Move your update frequency to `accrualPeriodicity` using a plain-language code.
-
-
   
   <table class="usa-table">
   <thead>
@@ -80,25 +101,28 @@ details: >+
   </tr>
   </tbody>
   </table>
+
   
   Add `accrualPeriodicity` to express update frequency:
+
   
   <pre><code>"accrualPeriodicity": "annually"
   </code></pre>
 
-
   
   Accepted values include: `daily`, `weekly`, `monthly`, `quarterly`, `annually`, `irregular`. ISO 8601 repeating duration format (e.g., `R/P1Y`) is also still accepted.
+
+  
+  See [`transform_modified()`](https://github.com/GSA/dcat-us/blob/main/jsonschema/transforms.py) in transforms.py for how this translation is implemented.
 
   
   ---
 
   
   #### Step 2 — Fix `temporal`
-
+  
   
   Replace the v1.1 ISO 8601 interval string with an array of PeriodOfTime objects. At least one of `startDate` or `endDate` is required per object. Open-ended periods are valid — omit `endDate` for ongoing datasets.
-
 
   
   <table class="usa-table">
@@ -135,18 +159,17 @@ details: >+
   </tbody>
   </table>
 
+  
+  See [`transform_temporal()`](https://github.com/GSA/dcat-us/blob/main/jsonschema/transforms.py) in transforms.py for how this translation is implemented.
 
   
   ---
-
-
   
-  #### Step 3 — Fix `spatial`
-
+  
+  #### Step 3 — Revise `spatial`
 
   
   Replace the v1.1 plain string or ad-hoc GeoJSON with an array of Location objects. No fields are required on Location — include `prefLabel` at minimum, and add `bbox` for geospatial precision.
-
 
   
   <table class="usa-table">
@@ -183,18 +206,17 @@ details: >+
   </tbody>
   </table>
 
+  
+  See [`transform_spatial()`](https://github.com/GSA/dcat-us/blob/main/jsonschema/transforms.py) in transforms.py for how this translation is implemented.
 
   
   ---
-
-
+  
   
   #### Step 4 — Fix `language`
 
-
   
   Replace RFC 5646 language tags with two-letter ISO 639-1 codes. The v3.0 schema enforces a maximum length of two characters — values like `en-US` will fail validation.
-
 
   
   <table class="usa-table">
@@ -219,32 +241,20 @@ details: >+
   </tr>
   </tbody>
   </table>
-
-
   
   This applies to `language` on Dataset, Distribution, DataService, and Catalog.
-
-
+  
+  See [`transform_language()`](https://github.com/GSA/dcat-us/blob/main/jsonschema/transforms.py) in transforms.py for how this translation is implemented.
   
   ---
-
-
   
   ### Structural changes — required for correct v3.0 implementation
   
-  
-  
   These changes will not cause immediate validation failures but are required to correctly implement v3.0.
   
-  
-  
   #### Step 5 — Update `conformsTo` on the Catalog
-
-
   
   Change the plain string URI to a Standard object pointing to DCAT-US v3.0.
-
-
   
   <table class="usa-table">
   <thead>
@@ -267,18 +277,17 @@ details: >+
   </tbody>
   </table>
 
+  
+  This catalog-level change is handled by the conversion script directly. See [`convert_dcat_1_1_to_3_0.py`](https://github.com/GSA/dcat-us/blob/main/jsonschema/convert_dcat_1_1_to_3_0.py) for the implementation.
 
   
   ---
-
-
+  
   
   #### Step 6 — Remove `@context` and `describedBy` from the Catalog
 
-
   
   Both fields have been removed at the catalog level in v3.0. Delete these lines from your catalog object.
-
 
   
   <pre><code>// Remove these lines from your catalog:
@@ -286,17 +295,18 @@ details: >+
   "describedBy": "https://project-open-data.cio.gov/v1.1/schema/catalog.json"
   </code></pre>
 
+  
+  This catalog-level change is handled by the conversion script directly. See [`convert_dcat_1_1_to_3_0.py`](https://github.com/GSA/dcat-us/blob/main/jsonschema/convert_dcat_1_1_to_3_0.py) for the implementation.
 
   
   ---
 
-
   
-  #### Step 7 — Manage `accessLevel` along side `accessRights`
-
+  #### Step 7 — Manage `accessLevel` alongside `accessRights`
 
   
   `accessLevel` is not in the v3.0 schema. Add `accessRights` as a free-text string alongside your existing `accessLevel` field. Until updated OMB guidance is issued, keep `accessLevel` in your records — the v3.0 schema will not reject it.
+
   
   <table class="usa-table">
   <thead>
@@ -320,19 +330,18 @@ details: >+
   </tr>
   </tbody>
   </table>
+
   
-  
+  See [`transform_access_rights()`](https://github.com/GSA/dcat-us/blob/main/jsonschema/transforms.py) in transforms.py for how this translation is implemented.
+
   
   ---
-
-
+  
   
   #### Step 8 — Add `license` to Distribution objects
 
-
   
   In v3.0, `license` is defined at the Distribution level per W3C DCAT. The recommended approach is to add `license` to each Distribution object. You do not need to remove it from the Dataset level during the transition period — the v3.0 schema will not reject records that include it there.
-
 
   
   <table class="usa-table">
@@ -367,35 +376,30 @@ details: >+
   </tr>
   </tbody>
   </table>
-
   
   
   If all your distributions share the same license you will need to add it to each one individually.
 
+  
+  See [`propagate_license()`](https://github.com/GSA/dcat-us/blob/main/jsonschema/transforms.py) in transforms.py for how this translation is implemented.
 
   
   ---
 
-  
   
   ### You are done with the minimum migration
 
-
   
-  After completing steps 1 through 8 your records should validate against the v3.0 schema. Run your updated `data.json` against the validation script at https://harvest.data.gov/validate/ to confirm.
-
+  After completing steps 1 through 8, your records should validate against the v3.0 schema. Run your updated `data.json` against the validation script at <https://harvest.data.gov/validate/> to confirm.
 
   
   ---
-
-
+  
   
   ### Additional improvements
-
-
+  
   
   These changes are not required for validation but improve the quality and interoperability of your metadata. Work through them when you are ready.
-
 
   
   <table class="usa-table">
@@ -409,7 +413,7 @@ details: >+
   <tbody>
   <tr id="improve-landingPage">
   <td>Upgrade <code>landingPage</code></td>
-  <td>Change from a plain URL string to a Document object with <code>title</code> and <code>accessURL</code>.</td>
+  <td>Change from a plain URL string to a Document object with <code>title</code> and <code>accessURL</code>. See <a href="https://github.com/GSA/dcat-us/blob/main/jsonschema/transforms.py"><code>transform_landing_page()</code></a> in transforms.py.</td>
   <td><a href="../dcat-us-3-dataset/">Dataset fields</a></td>
   </tr>
   <tr id="improve-theme">
@@ -419,17 +423,17 @@ details: >+
   </tr>
   <tr id="improve-describedBy">
   <td>Upgrade <code>describedBy</code></td>
-  <td>Change from a plain URL to a Distribution object with <code>title</code>, <code>downloadURL</code> or <code>accessURL</code>, and <code>mediaType</code>. Remove <code>describedByType</code> — it is now expressed as <code>mediaType</code> within the Distribution object.</td>
+  <td>Change from a plain URL to a Distribution object with <code>title</code>, <code>downloadURL</code> or <code>accessURL</code>, and <code>mediaType</code>. Remove <code>describedByType</code> — it is now expressed as <code>mediaType</code> within the Distribution object. See <a href="https://github.com/GSA/dcat-us/blob/main/jsonschema/transforms.py"><code>transform_described_by()</code></a> in transforms.py.</td>
   <td><a href="../dcat-us-3-dataset/">Dataset fields</a></td>
   </tr>
   <tr id="improve-conformsTo">
   <td>Upgrade <code>conformsTo</code> on Dataset and Distribution</td>
-  <td>Change from a plain URI string to an array of Standard objects. Example: <code>[{"@type": "Standard", "title": "ISO 19115", "identifier": "https://www.iso.org/standard/53798.html"}]</code></td>
+  <td>Change from a plain URI string to an array of Standard objects. Example: <code>[{"@type": "Standard", "title": "ISO 19115", "identifier": "https://www.iso.org/standard/53798.html"}]</code>. See <a href="https://github.com/GSA/dcat-us/blob/main/jsonschema/transforms.py"><code>transform_conforms_to()</code></a> in transforms.py.</td>
   <td><a href="../dcat-us-3-dataset/">Dataset fields</a></td>
   </tr>
   <tr id="improve-rights">
   <td>Convert <code>rights</code> to an array</td>
-  <td>Change from a single string (max 255 characters in v1.1) to an array of strings with no character limit. Example: <code>["This data is in the public domain."]</code></td>
+  <td>Change from a single string (max 255 characters in v1.1) to an array of strings with no character limit. Example: <code>["This data is in the public domain."]</code>. See <a href="https://github.com/GSA/dcat-us/blob/main/jsonschema/transforms.py"><code>transform_rights()</code></a> in transforms.py.</td>
   <td><a href="../dcat-us-3-dataset/">Dataset fields</a></td>
   </tr>
   <tr id="improve-restrictions">
@@ -454,16 +458,20 @@ details: >+
   </tr>
   </tbody>
   </table>
+
   
   ---
   
+  
   ### Changelog
+
   
   | Date | Change |
   |---|---|
-  | 2026-05-27 | Added deep-link anchors to all table rows. No content changes -- this is a guidance page with no schema reference to compare against. |
-  
-  
+  | 2026-06-23 | Rewrote overview; added migration script section describing transforms.py and convert_dcat_1_1_to_3_0.py; added function references to each step. |
+  | 2026-05-27 | Added deep-link anchors to all table rows. No content changes. |
+
+    
   ## DCAT US Pages
   
   ### [Index](https://resources.data.gov/resources/dcat-us3/)
