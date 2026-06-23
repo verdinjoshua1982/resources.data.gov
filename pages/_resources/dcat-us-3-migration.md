@@ -41,7 +41,11 @@ details: >+
   
   
   After completing all steps, run your updated `data.json` against the v3.0 validator: <https://harvest.data.gov/validate/>
-  
+
+
+  Data.gov has tested this migration against 128 federal harvest sources covering 174,847 datasets. Before transformation, 15,955 datasets had validation errors against the v1.1 schema. After running the migration script, that number dropped to 4,641 -- a 71% reduction in invalid records and a 79% reduction in total validation errors. If your agency has a developer or IT team, hand them the migration script and point them to this page.
+
+
   
   ---
   
