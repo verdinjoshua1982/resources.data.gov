@@ -13,7 +13,9 @@ format: ""
 details: >-
 
 
+
   This page tracks the current status and upcoming schedule for DCAT-US 3.0 implementation on Data.gov. Last updated: June 23, 2026.
+
 
 
   Questions or feedback? Contact us at [datagovhelp@gsa.gov](mailto:datagovhelp@gsa.gov).
@@ -21,8 +23,10 @@ details: >-
 
   
   ## What is available now
+
   
   The following tools and resources are live and ready to use.
+
   
   <table class="usa-table">
   <thead>
@@ -60,12 +64,16 @@ details: >-
   </tr>
   </tbody>
   </table>
+
   
   ## In progress
+
   
   The following items are currently being worked on and are expected to be available in upcoming sprints.
   
+  
   Agencies do not need to wait for the implementation guide to begin working toward DCAT-US v3.0 compliance. The tools and resources above are available now. When released, the implementation guide will provide additional policy and procedural context for agencies building or updating their data inventories. Agencies can choose to wait for the implementation guide or move forward now based on their own internal guidance.
+
   
   <table class="usa-table">
   <thead>
@@ -114,24 +122,31 @@ details: >-
   </tr>
   </tbody>
   </table>
+
   
   ## About this page
+
   
   This page is maintained by the Data.gov team at GSA Technology Transformation Services. It is updated every two weeks.
   
+  
   DCAT-US 3.0 is the updated U.S. federal metadata standard required under OMB M-25-05 and anchored in the OPEN Government Data Act and the Evidence Act.
+
   
   Data.gov is the implementation support partner for DCAT-US 3.0.
+
   
   Compliance guidance is issued through OMB and the CDO Council.
   
-  examples: ""
+
   
-  link: ""
-  
-  layout: resource
-  
-  toc: true
-  
-  publish: true
-  ---
+examples: ""
+
+link: ""
+
+layout: resource
+
+toc: true
+
+publish: true
+---
