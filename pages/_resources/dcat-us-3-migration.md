@@ -38,8 +38,6 @@ details: >+
   If your agency has a developer or IT team, there is also a Python script developed to implement these changes and verify DCAT-US3.0 validity. See [Using the migration script](#using-the-migration-script) below.
   
   
-  After completing all steps, run your updated `data.json` against the v3.0 validator: <https://harvest.data.gov/validate/>
-
 
   Data.gov has tested this migration against 128 federal harvest sources covering 174,847 datasets. Before transformation, 15,955 datasets had validation errors against the v1.1 schema. After running the migration script and validating against DCAT-US3.0, that number dropped to 4,641 -- a 71% reduction in invalid records and a 79% reduction in total validation errors. If your agency has a developer or IT team, hand them the migration script and point them to this page.
 
@@ -639,10 +637,24 @@ details: >+
   ### Changelog
 
   
-  | Date | Change |
-  |---|---|
-  | 2026-06-24 | Rewrote overview; aligned the migration steps to the current conversion script; removed the split between breaking and structural changes; added coverage for catalog `modified`, `rights`, `describedBy`, `subOrganizationOf`, Dataset and Distribution `conformsTo`, `landingPage`, and `issued`. |
-  | 2026-05-27 | Added deep-link anchors to all table rows. No content changes. |
+  <table class="usa-table">
+  <thead>
+  <tr>
+  <th>Date</th>
+  <th>Change</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>2026-06-24</td>
+  <td>Rewrote overview; aligned the migration steps to the current conversion script; removed the split between breaking and structural changes; added coverage for catalog <code>modified</code>, <code>rights</code>, <code>describedBy</code>, <code>subOrganizationOf</code>, Dataset and Distribution <code>conformsTo</code>, <code>landingPage</code>, and <code>issued</code>.</td>
+  </tr>
+  <tr>
+  <td>2026-05-27</td>
+  <td>Added deep-link anchors to all table rows. No content changes.</td>
+  </tr>
+  </tbody>
+  </table>
 
     
   ## DCAT US Pages
