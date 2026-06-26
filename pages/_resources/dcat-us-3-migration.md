@@ -657,25 +657,6 @@ details: >+
   </table>
 
     
-  ## DCAT US Pages
-  
-  ### [Index](https://resources.data.gov/resources/dcat-us3/)
-  
-  ### [Catalog](../dcat-us-3-catalog/)
-  
-  ### [Data Service](../dcat-us-3-data-service/)
-  
-  ### [Dataset Series](../dcat-us-3-dataset-series/)
-  
-  ### [Dataset](../dcat-us-3-dataset/)
-  
-  ### [Distribution](../dcat-us-3-distribution/)
-  
-  ### [Supporting Classes](../dcat-us-3-supporting-classes/)
-  
-  ### [DCAT Priorities](../dcat-us-priorities/)
-  
-  ### [DCAT US General Information](../dcat-us/)
 
 examples: ""
 link: ""
