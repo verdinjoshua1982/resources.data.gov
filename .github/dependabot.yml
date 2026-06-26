@@ -12,6 +12,12 @@ updates:
     ignore:
       - dependency-name: "gulp"
         update-types: ["version-update:semver-major"]
+      - dependency-name: "@babel/core"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@babel/plugin-transform-runtime"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@babel/preset-env"
+        update-types: ["version-update:semver-major"]
     groups:
       # Group all npm updates together
       npm-packages:
