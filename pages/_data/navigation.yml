@@ -36,26 +36,14 @@
       url: /standards/catalog/dcat-us/ 
 - text: DCAT-US 3 Tools, Implementation
   children:
-    - text: DCAT-US 3 Schedule, Maintenance, and Release Plan
+    - text: DCAT-US 3 Toos, Schedule, and Maintenance Plan
       url: /resources/dcat-us-3-updates/
-    - text: DCAT-US 3
-      url: /resources/dcat-us3/
     - text: Migrating from DCAT-US v1.1 to v3.0
       url: /resources/dcat-us-3-migration/
     - text: Implementation Guide
       url: /resources/dcat-us-3-implementation/
-    - text: Catalog fields, Guidance, Examples
-      url: /resources/dcat-us-3-catalog/
-    - text: DataService fields, Guidance, Examples
-      url: /resources/dcat-us-3-data-service/
-    - text: DatasetSeries fields, Guidance, Examples
-      url: /resources/dcat-us-3-dataset-series/
-    - text: Dataset fields, Guidance, Examples
-      url: /resources/dcat-us-3-dataset/
-    - text: Distribution fields, Guidance, Examples
-      url: /resources/dcat-us-3-distribution/
-    - text: Supporting classes, Guidance, Examples
-      url: /resources/dcat-us-3-supporting-classes/
+    - text: DCAT-US 3 Schema Link
+      url: /resources/dcat-us3/
 - text: API Documentation
   children:
     - text: General Information
