@@ -8,12 +8,18 @@ layout: default
   {% assign breadcrumb_nav = "" %}
 {% endif %}
 
+{% if page.permalink contains "/standards/catalog/dcat-us-3/" %}
+  {% assign page_context_class = "dcat-us3-reference" %}
+{% else %}
+  {% assign page_context_class = "" %}
+{% endif %}
+
 <div class="usa-layout-docs usa-section {{ breadcrumb_nav }}" id="main-content">
   <div class="grid-container">
     {% include breadcrumb.html %}
     <div class="grid-row grid-gap">
       {% include sidenav.html %}
-      <div class="usa-layout__docs-main desktop:grid-col-12">
+      <div class="usa-layout__docs-main desktop:grid-col-12 {{ page_context_class }}">
         <h1>{{ page.title }}</h1>
         {{ content }}
       </div>

@@ -22,7 +22,7 @@ details: >+
 
 
 
-  **THIS PAGE IS A TECHNICAL GUIDE AND NOT MEANT TO PROVIDE IMPLEMENTATION GUIDANCE FOR M25-05 OR SPECIFIC FIELD DEFINITIONS. Want to know when that happens? Email us at DataGovHelp@gsa.gov, and we'll let you know!**
+  **This page is a technical guide and not meant to provide implementation guidance for M25-05 or specific field definitions.** Want to know when that happens? Email us at DataGovHelp@gsa.gov, and we'll let you know!
 
   
   See an error on this page or have other feedback? Email us at DataGovHelp@gsa.gov

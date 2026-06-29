@@ -10,22 +10,22 @@
       url: /resources/harvester-what-is-harvesting/
 - text: Data Standards, Schemas
   children:
-    - text: DCAT-US 3
+    - text: DCAT-US 3.0 Overview
       url: /resources/dcat-us3/
     - text: DCAT-US Priorities
       url: /resources/dcat-us-priorities/
-    - text: Schema DCAT-US 3.0 Agents
-      url: /standards/catalog/dcat-us-3/agents/
     - text: Schema DCAT-US 3.0 Catalog
       url: /standards/catalog/dcat-us-3/catalog/
-    - text: Schema DCAT-US 3.0 Constraints and Restrictions
-      url: /standards/catalog/dcat-us-3/constraints-and-restrictions/
-    - text: Schema DCAT-US 3.0 Dataset Series
-      url: /standards/catalog/dcat-us-3/dataset-series/
     - text: Schema DCAT-US 3.0 Dataset
       url: /standards/catalog/dcat-us-3/dataset/
     - text: Schema DCAT-US 3.0 Distribution
       url: /standards/catalog/dcat-us-3/distribution/
+    - text: Schema DCAT-US 3.0 Agents
+      url: /standards/catalog/dcat-us-3/agents/
+    - text: Schema DCAT-US 3.0 Constraints and Restrictions
+      url: /standards/catalog/dcat-us-3/constraints-and-restrictions/
+    - text: Schema DCAT-US 3.0 Dataset Series
+      url: /standards/catalog/dcat-us-3/dataset-series/
     - text: Schema DCAT-US 3.0 Identifiers and Relationships
       url: /standards/catalog/dcat-us-3/identifiers-and-relationships/
     - text: Schema DCAT-US 3.0 Quality and Governance
@@ -36,13 +36,13 @@
       url: /standards/catalog/dcat-us/ 
 - text: DCAT-US 3 Tools, Implementation
   children:
-    - text: DCAT-US 3 Toos, Schedule, and Maintenance Plan
+    - text: DCAT-US 3 Tools, Schedule, and Maintenance Plan
       url: /resources/dcat-us-3-updates/
     - text: Migrating from DCAT-US v1.1 to v3.0
       url: /resources/dcat-us-3-migration/
     - text: Implementation Guide
       url: /resources/dcat-us-3-implementation/
-    - text: DCAT-US 3 Schema Link
+    - text: DCAT-US 3 Overview
       url: /resources/dcat-us3/
 - text: API Documentation
   children:

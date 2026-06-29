@@ -228,6 +228,19 @@ nav {
   background-color : #eee;
 }
 
+.dcat-us3-reference table {
+  border-collapse: collapse;
+}
+
+.dcat-us3-reference table th,
+.dcat-us3-reference table td {
+  border: 1px solid color('gray-20');
+}
+
+.dcat-us3-reference table th {
+  background-color: color('gray-5');
+}
+
 /* USA IDENTIFIER */
 .usa-identifier {
   & nav {
