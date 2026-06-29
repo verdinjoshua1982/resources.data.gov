@@ -19,8 +19,8 @@ details: >+
 
   ---
 
-  **  THIS PAGE IS A DRAFT AND WILL BE UPDATED WHEN THE IMPLEMENTATION GUIDE IS RELEASED.  Want to know when that happens? Email us at DataGovHelp@gsa.gov, and we'll let you know!
-  **
+  **This page is a draft and will be updated when the implementation guide is released.**  Want to know when that happens? Email us at DataGovHelp@gsa.gov, and we'll let you know!
+  
   See an error on this page or have other feedback? Email us at DataGovHelp@gsa.gov
 
  
