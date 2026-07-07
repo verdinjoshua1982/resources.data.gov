@@ -14,7 +14,7 @@ details: >-
 
 
 
-  This page tracks the current status and upcoming schedule for DCAT-US 3.0 implementation on Data.gov. Last updated: June 23, 2026.
+  This page tracks the current status and upcoming schedule for DCAT-US 3.0 implementation on Data.gov. Last updated: July 7, 2026.
 
 
 
