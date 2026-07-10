@@ -57,6 +57,9 @@
         "shell-quote": "1.9.0",
         "node-notifier": {
             "uuid": "11.1.1"
+        },
+        "sass": {
+            "immutable": "5.1.9"
         }
     }
 }
