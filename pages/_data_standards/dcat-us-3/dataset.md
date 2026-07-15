@@ -113,6 +113,7 @@ A collection of data published or curated by one provider
 | [cuiRestriction](#cuiRestriction)                       | null or [CUIRestriction](/standards/catalog/dcat-us-3/constraints-and-restrictions/#cui-restriction)                        | Recommended       | Controlled Unclassified Information restriction related to the dataset                                                                                                                                                                                     |
 | [describedBy](#describedBy)                             | null or [Distribution](/standards/catalog/dcat-us-3/distribution/#root)                                                     | Recommended       | A distribution describing the Data Dictionary for this dataset                                                                                                                                                                                             |
 | [distribution](#distribution)                           | null or array of [Distribution](/standards/catalog/dcat-us-3/distribution/#root) classes                                    | Recommended       | List of available distributions for the dataset. This can be omitted when no distribution is available yet.                                                                                                                                                |
+| [inventoried](#inventoried)                             | null or object                                                                                     | Recommended       | Date on which the dataset was added to the catalog. This may differ from the publication/release date.                                                                                                                                                     |
 | [keyword](#keyword)                                     | null or array of string                                                                            | Recommended       | List of keywords or tags describing the dataset                                                                                                                                                                                                            |
 | [landingPage](#landingPage)                             | null or [Document](/standards/catalog/dcat-us-3/quality-governance/#document)                                               | Recommended       | A web page from the original data provider that gives access to the Dataset, its Distributions, and related information                                                                                                                                    |
 | [license](#license)                                     | null or string                                                                                     | Recommended       | License that governs how the dataset can be used or reused                                                                                                                                                                                                 |
@@ -285,6 +286,34 @@ List of available distributions for the dataset. This can be omitted when no dis
 
 **Each item of this array must be:**
 - [Distribution](/standards/catalog/dcat-us-3/distribution/#root): A specific representation of a dataset, such as a file, feed, or API response
+
+## <a name="inventoried"></a>`Dataset > inventoried` [#](#inventoried)
+
+**Title:** inventoried date
+
+**Requirement:** Recommended
+
+Date on which the dataset was added to the catalog. This may differ from the publication/release date.
+
+- **Type**: null or object
+
+**Examples:**
+
+```json
+"2024-01-15"
+```
+
+```json
+"2024-01-15T10:30:00Z"
+```
+
+```json
+"2024"
+```
+
+```json
+"2024-01"
+```
 
 ## <a name="keyword"></a>`Dataset > keyword` [#](#keyword)
 
