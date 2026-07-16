@@ -32,7 +32,7 @@ A specific representation of a dataset, such as a file, feed, or API response
         "No rights reserved. This data is in the public domain."
     ],
     "describedBy": {
-        "@type": "Standard",
+        "@type": "Distribution",
         "title": "CSV Data Dictionary",
         "accessURL": "https://example.gov/data/climate/dictionary"
     },
@@ -54,7 +54,7 @@ A specific representation of a dataset, such as a file, feed, or API response
 | [modified](#modified)                                   | null or object                                                                                     | Recommended       | The most recent date on which the Distribution was changed or modified                                                                                                        |
 | [rights](#rights)                                       | null or array of string                                                                            | Recommended       | Rights statements not already covered by license or accessRights, such as copyright or policy restrictions                                                                    |
 | [title](#title)                                         | null or string                                                                                     | Recommended       | Human-readable title of the distribution                                                                                                                                      |
-| [useRestriction](#useRestriction)                       | null or array of [UseRestriction](/standards/catalog/dcat-us-3/constraints-and-restrictions/#use-restriction) classes       | Recommended       | Use restriction related to the distribution                                                                                                                                   |
+| [useRestriction](#useRestriction)                       | null or array of [UseRestriction](/standards/catalog/dcat-us-3/constraints-and-restrictions/#use-restriction) classes       | Recommended       | List of use restrictions related to the distribution                                                                                                                          |
 | [@id](#@id)                                             | string                                                                                             | Optional          |                                                                                                                                                                               |
 | [@type](#@type)                                         | string                                                                                             | Optional          |                                                                                                                                                                               |
 | [accessRights](#accessRights)                           | null or string                                                                                     | Optional          | Information about whether the distribution is publicly accessible, restricted, or not public                                                                                  |
@@ -69,6 +69,7 @@ A specific representation of a dataset, such as a file, feed, or API response
 | [hasQualityMeasurement](#hasQualityMeasurement)         | null or array of [QualityMeasurement](/standards/catalog/dcat-us-3/temporal-spatial-metrics/#quality-measurement) classes   | Optional          | Quality measurements for the distribution (for example, completeness, accuracy, or timeliness)                                                                                |
 | [identifier](#identifier)                               | null or [Identifier](/standards/catalog/dcat-us-3/identifiers-and-relationships/#identifier)                                | Optional          | The unique identifier for the Distribution (e.g. DOI, ISBN)                                                                                                                   |
 | [image](#image)                                         | null or string                                                                                     | Optional          | A link to a thumbnail picture illustrating the content of the distribution                                                                                                    |
+| [inventoried](#inventoried)                             | null or object                                                                                     | Optional          | Date on which the distribution was added to the catalog. This may differ from the publication/release date.                                                                   |
 | [issued](#issued)                                       | null or object                                                                                     | Optional          | The date of formal issuance (e.g., publication) of the Distribution                                                                                                           |
 | [language](#language)                                   | More than one type                                                                                 | Optional          | ISO 639-1 language code values used in the distribution metadata text, such as en or es, full list can be seen at https://id.loc.gov/vocabulary/iso639-1.html                 |
 | [mediaType](#mediaType)                                 | null or string                                                                                     | Optional          | MIME type of the Distribution (for example, text/csv or application/json), from the IANA media types registry: https://www.iana.org/assignments/media-types/media-types.xhtml |
@@ -254,7 +255,7 @@ Human-readable title of the distribution
 
 **Requirement:** Recommended
 
-Use restriction related to the distribution
+List of use restrictions related to the distribution
 
 - **Type**: null or array of [UseRestriction](/standards/catalog/dcat-us-3/constraints-and-restrictions/#use-restriction) classes
 
@@ -423,6 +424,34 @@ The unique identifier for the Distribution (e.g. DOI, ISBN)
 A link to a thumbnail picture illustrating the content of the distribution
 
 - **Type**: null or string
+
+## <a name="inventoried"></a>`Distribution > inventoried` [#](#inventoried)
+
+**Title:** inventoried date
+
+**Requirement:** Optional
+
+Date on which the distribution was added to the catalog. This may differ from the publication/release date.
+
+- **Type**: null or object
+
+**Examples:**
+
+```json
+"2024-01-15"
+```
+
+```json
+"2024-01-15T10:30:00Z"
+```
+
+```json
+"2024"
+```
+
+```json
+"2024-01"
+```
 
 ## <a name="issued"></a>`Distribution > issued` [#](#issued)
 

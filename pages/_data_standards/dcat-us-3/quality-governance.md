@@ -930,38 +930,42 @@ A service that provides access to data or data processing functions
 }
 ```
 
-| Property                                                 | Type                                                                                             | Requirement Level | Title/Description                                                                                                                                    |
-| -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [contactPoint](#data-service--contactPoint)                           | array of [Kind](/standards/catalog/dcat-us-3/agents/#kind) classes                                                        | Mandatory         | Contact information for questions about the Data Service. Include an email address that is continuously monitored                                    |
-| [endpointURL](#data-service--endpointURL)                             | array of string                                                                                  | Mandatory         | A list of root locations or primary endpoints of the service (a Web-resolvable IRI)                                                                  |
-| [publisher](#data-service--publisher)                                 | object                                                                                           | Mandatory         | Person or organization responsible for publishing and making the data service available                                                              |
-| [title](#data-service--title)                                         | string                                                                                           | Mandatory         | Human-readable title of the data service                                                                                                             |
-| [endpointDescription](#data-service--endpointDescription)             | null or array of string                                                                          | Recommended       | List of endpoint descriptions with operations and parameters (for example, OpenAPI or similar service documentation)                                 |
-| [license](#data-service--license)                                     | null or string                                                                                   | Recommended       | License that governs how the data service can be used or reused                                                                                      |
-| [servesDataset](#data-service--servesDataset)                         | null or array of [Dataset](/standards/catalog/dcat-us-3/dataset/#root) classes                                            | Recommended       | List of datasets this service provides access to                                                                                                     |
-| [@id](#data-service--@id)                                             | string                                                                                           | Optional          |                                                                                                                                                      |
-| [@type](#data-service--@type)                                         | string                                                                                           | Optional          |                                                                                                                                                      |
-| [accessRights](#data-service--accessRights)                           | null or string                                                                                   | Optional          | Information about whether the data service is publicly accessible, restricted, or not public                                                         |
-| [category](#data-service--category)                                   | null or array of [Concept](/standards/catalog/dcat-us-3/identifiers-and-relationships/#concept) classes                   | Optional          | List of high-level categories for the data service                                                                                                   |
-| [conformsTo](#data-service--conformsTo)                               | null or array of [Standard](/standards/catalog/dcat-us-3/quality-governance/#standard) classes                            | Optional          | List of general standards or specifications that the Data Service endpoints implement                                                                |
-| [created](#data-service--created)                                     | null or object                                                                                   | Optional          | The date on which the Data Service was first created                                                                                                 |
-| [creator](#data-service--creator)                                     | null or array of [Agent](/standards/catalog/dcat-us-3/agents/#agent) classes                                              | Optional          | List of agents primarily responsible for producing the Data Service                                                                                  |
-| [description](#data-service--description)                             | null or string                                                                                   | Optional          | Plain-language summary of the data service                                                                                                           |
-| [hasQualityMeasurement](#data-service--hasQualityMeasurement)         | null or array of [QualityMeasurement](/standards/catalog/dcat-us-3/temporal-spatial-metrics/#quality-measurement) classes | Optional          | Quality measurements for the data service (for example, availability, response time, or reliability)                                                 |
-| [identifier](#data-service--identifier)                               | null or [Identifier](/standards/catalog/dcat-us-3/identifiers-and-relationships/#identifier)                              | Optional          | The unique identifier for the Data Service, e.g. the URI or other unique identifier in the context of the Catalog                                    |
-| [keyword](#data-service--keyword)                                     | null or array of string                                                                          | Optional          | List of keywords or tags describing the data service                                                                                                 |
-| [language](#data-service--language)                                   | More than one type                                                                               | Optional          | ISO 639-1 language code values supported by the data service, such as en or es, full list can be seen at https://id.loc.gov/vocabulary/iso639-1.html |
-| [modified](#data-service--modified)                                   | null or object                                                                                   | Optional          | The most recent date on which the Data Service was changed or modified                                                                               |
-| [otherIdentifier](#data-service--otherIdentifier)                     | null or array of [Identifier](/standards/catalog/dcat-us-3/identifiers-and-relationships/#identifier) classes             | Optional          | A list of identifiers for the Data Service besides the main identifier, e.g. the URI or other unique identifiers in the context of the Catalog       |
-| [qualifiedAttribution](#data-service--qualifiedAttribution)           | null or array of [Attribution](/standards/catalog/dcat-us-3/quality-governance/#attribution) classes                      | Optional          | List of agents with specific responsibilities for the data service                                                                                   |
-| [rights](#data-service--rights)                                       | null or array of string                                                                          | Optional          | Rights statements not already covered by license or accessRights, such as copyright or policy restrictions                                           |
-| [rightsHolder](#data-service--rightsHolder)                           | null or array of [Organization](/standards/catalog/dcat-us-3/agents/#organization) classes                                | Optional          | A list of Agents (organizations) holding rights on the Data Service                                                                                  |
-| [spatial](#data-service--spatial)                                     | null or array of [Location](/standards/catalog/dcat-us-3/temporal-spatial-metrics/#location) classes                      | Optional          | A geographic region that is covered by the Data Service                                                                                              |
-| [spatialResolutionInMeters](#data-service--spatialResolutionInMeters) | null or string                                                                                   | Optional          | The minimum spatial separation resolvable in a Data Service, measured in meters                                                                      |
-| [temporal](#data-service--temporal)                                   | null or array of [PeriodOfTime](/standards/catalog/dcat-us-3/temporal-spatial-metrics/#period-of-time) classes            | Optional          | Time periods covered by the data service                                                                                                             |
-| [temporalResolution](#data-service--temporalResolution)               | null or string                                                                                   | Optional          | The minimum time period resolvable by the Data Service                                                                                               |
-| [theme](#data-service--theme)                                         | null or array of [Concept](/standards/catalog/dcat-us-3/identifiers-and-relationships/#concept) classes                   | Optional          | List of themes or categories for the data service                                                                                                    |
-| [wasUsedBy](#data-service--wasUsedBy)                                 | null or array of [Activity](/standards/catalog/dcat-us-3/temporal-spatial-metrics/#activity) classes                      | Optional          | List of activities that used or tested the data service                                                                                              |
+| Property                                                 | Type                                                                                               | Requirement Level | Title/Description                                                                                                                                    |
+| -------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [contactPoint](#data-service--contactPoint)                           | array of [Kind](/standards/catalog/dcat-us-3/agents/#kind) classes                                                          | Mandatory         | Contact information for questions about the Data Service. Include an email address that is continuously monitored                                    |
+| [endpointURL](#data-service--endpointURL)                             | array of string                                                                                    | Mandatory         | A list of root locations or primary endpoints of the service (a Web-resolvable IRI)                                                                  |
+| [publisher](#data-service--publisher)                                 | object                                                                                             | Mandatory         | Person or organization responsible for publishing and making the data service available                                                              |
+| [title](#data-service--title)                                         | string                                                                                             | Mandatory         | Human-readable title of the data service                                                                                                             |
+| [endpointDescription](#data-service--endpointDescription)             | null or array of string                                                                            | Recommended       | List of endpoint descriptions with operations and parameters (for example, OpenAPI or similar service documentation)                                 |
+| [license](#data-service--license)                                     | null or string                                                                                     | Recommended       | License that governs how the data service can be used or reused                                                                                      |
+| [servesDataset](#data-service--servesDataset)                         | null or array of [Dataset](/standards/catalog/dcat-us-3/dataset/#root) classes                                              | Recommended       | List of datasets this service provides access to                                                                                                     |
+| [@id](#data-service--@id)                                             | string                                                                                             | Optional          |                                                                                                                                                      |
+| [@type](#data-service--@type)                                         | string                                                                                             | Optional          |                                                                                                                                                      |
+| [accessRestriction](#data-service--accessRestriction)                 | null or array of [AccessRestriction](/standards/catalog/dcat-us-3/constraints-and-restrictions/#access-restriction) classes | Optional          | List of access restrictions related to the data service                                                                                              |
+| [accessRights](#data-service--accessRights)                           | null or string                                                                                     | Optional          | Information about whether the data service is publicly accessible, restricted, or not public                                                         |
+| [category](#data-service--category)                                   | null or array of [Concept](/standards/catalog/dcat-us-3/identifiers-and-relationships/#concept) classes                     | Optional          | List of high-level categories for the data service                                                                                                   |
+| [conformsTo](#data-service--conformsTo)                               | null or array of [Standard](/standards/catalog/dcat-us-3/quality-governance/#standard) classes                              | Optional          | List of general standards or specifications that the Data Service endpoints implement                                                                |
+| [created](#data-service--created)                                     | null or object                                                                                     | Optional          | The date on which the Data Service was first created                                                                                                 |
+| [creator](#data-service--creator)                                     | null or array of [Agent](/standards/catalog/dcat-us-3/agents/#agent) classes                                                | Optional          | List of agents primarily responsible for producing the Data Service                                                                                  |
+| [cuiRestriction](#data-service--cuiRestriction)                       | null or [CUIRestriction](/standards/catalog/dcat-us-3/constraints-and-restrictions/#cui-restriction)                        | Optional          | Controlled Unclassified Information restriction related to the data service                                                                          |
+| [description](#data-service--description)                             | null or string                                                                                     | Optional          | Plain-language summary of the data service                                                                                                           |
+| [hasQualityMeasurement](#data-service--hasQualityMeasurement)         | null or array of [QualityMeasurement](/standards/catalog/dcat-us-3/temporal-spatial-metrics/#quality-measurement) classes   | Optional          | Quality measurements for the data service (for example, availability, response time, or reliability)                                                 |
+| [identifier](#data-service--identifier)                               | null or [Identifier](/standards/catalog/dcat-us-3/identifiers-and-relationships/#identifier)                                | Optional          | The unique identifier for the Data Service, e.g. the URI or other unique identifier in the context of the Catalog                                    |
+| [inventoried](#data-service--inventoried)                             | null or object                                                                                     | Optional          | Date on which the data service was added to the catalog. This may differ from the publication/release date.                                          |
+| [keyword](#data-service--keyword)                                     | null or array of string                                                                            | Optional          | List of keywords or tags describing the data service                                                                                                 |
+| [language](#data-service--language)                                   | More than one type                                                                                 | Optional          | ISO 639-1 language code values supported by the data service, such as en or es, full list can be seen at https://id.loc.gov/vocabulary/iso639-1.html |
+| [modified](#data-service--modified)                                   | null or object                                                                                     | Optional          | The most recent date on which the Data Service was changed or modified                                                                               |
+| [otherIdentifier](#data-service--otherIdentifier)                     | null or array of [Identifier](/standards/catalog/dcat-us-3/identifiers-and-relationships/#identifier) classes               | Optional          | A list of identifiers for the Data Service besides the main identifier, e.g. the URI or other unique identifiers in the context of the Catalog       |
+| [qualifiedAttribution](#data-service--qualifiedAttribution)           | null or array of [Attribution](/standards/catalog/dcat-us-3/quality-governance/#attribution) classes                        | Optional          | List of agents with specific responsibilities for the data service                                                                                   |
+| [rights](#data-service--rights)                                       | null or array of string                                                                            | Optional          | Rights statements not already covered by license or accessRights, such as copyright or policy restrictions                                           |
+| [rightsHolder](#data-service--rightsHolder)                           | null or array of [Organization](/standards/catalog/dcat-us-3/agents/#organization) classes                                  | Optional          | A list of Agents (organizations) holding rights on the Data Service                                                                                  |
+| [spatial](#data-service--spatial)                                     | null or array of [Location](/standards/catalog/dcat-us-3/temporal-spatial-metrics/#location) classes                        | Optional          | A geographic region that is covered by the Data Service                                                                                              |
+| [spatialResolutionInMeters](#data-service--spatialResolutionInMeters) | null or string                                                                                     | Optional          | The minimum spatial separation resolvable in a Data Service, measured in meters                                                                      |
+| [temporal](#data-service--temporal)                                   | null or array of [PeriodOfTime](/standards/catalog/dcat-us-3/temporal-spatial-metrics/#period-of-time) classes              | Optional          | Time periods covered by the data service                                                                                                             |
+| [temporalResolution](#data-service--temporalResolution)               | null or string                                                                                     | Optional          | The minimum time period resolvable by the Data Service                                                                                               |
+| [theme](#data-service--theme)                                         | null or array of [Concept](/standards/catalog/dcat-us-3/identifiers-and-relationships/#concept) classes                     | Optional          | List of themes or categories for the data service                                                                                                    |
+| [useRestriction](#data-service--useRestriction)                       | null or array of [UseRestriction](/standards/catalog/dcat-us-3/constraints-and-restrictions/#use-restriction) classes       | Optional          | List of use restrictions related to the data service                                                                                                 |
+| [wasUsedBy](#data-service--wasUsedBy)                                 | null or array of [Activity](/standards/catalog/dcat-us-3/temporal-spatial-metrics/#activity) classes                        | Optional          | List of activities that used or tested the data service                                                                                              |
 
 ## <a name="data-service--contactPoint"></a>`DataService > contactPoint` [#](#data-service--contactPoint)
 
@@ -1109,6 +1113,17 @@ List of datasets this service provides access to
 - **Type**: `string`
 - **Default**: `"DataService"`
 
+## <a name="data-service--accessRestriction"></a>`DataService > accessRestriction` [#](#data-service--accessRestriction)
+
+**Requirement:** Optional
+
+List of access restrictions related to the data service
+
+- **Type**: null or array of [AccessRestriction](/standards/catalog/dcat-us-3/constraints-and-restrictions/#access-restriction) classes
+
+**Each item of this array must be:**
+- [AccessRestriction](/standards/catalog/dcat-us-3/constraints-and-restrictions/#access-restriction): Rules or indicators that describe who can access a resource
+
 ## <a name="data-service--accessRights"></a>`DataService > accessRights` [#](#data-service--accessRights)
 
 **Requirement:** Optional
@@ -1184,6 +1199,14 @@ List of agents primarily responsible for producing the Data Service
 **Each item of this array must be:**
 - [Agent](/standards/catalog/dcat-us-3/agents/#agent): A person, organization, software agent, or other entity involved with a resource
 
+## <a name="data-service--cuiRestriction"></a>`DataService > cuiRestriction` [#](#data-service--cuiRestriction)
+
+**Requirement:** Optional
+
+Controlled Unclassified Information restriction related to the data service
+
+- **Type**: null or [CUIRestriction](/standards/catalog/dcat-us-3/constraints-and-restrictions/#cui-restriction)
+
 ## <a name="data-service--description"></a>`DataService > description` [#](#data-service--description)
 
 **Requirement:** Optional
@@ -1218,6 +1241,34 @@ Quality measurements for the data service (for example, availability, response t
 The unique identifier for the Data Service, e.g. the URI or other unique identifier in the context of the Catalog
 
 - **Type**: null or [Identifier](/standards/catalog/dcat-us-3/identifiers-and-relationships/#identifier)
+
+## <a name="data-service--inventoried"></a>`DataService > inventoried` [#](#data-service--inventoried)
+
+**Title:** inventoried date
+
+**Requirement:** Optional
+
+Date on which the data service was added to the catalog. This may differ from the publication/release date.
+
+- **Type**: null or object
+
+**Examples:**
+
+```json
+"2024-01-15"
+```
+
+```json
+"2024-01-15T10:30:00Z"
+```
+
+```json
+"2024"
+```
+
+```json
+"2024-01"
+```
 
 ## <a name="data-service--keyword"></a>`DataService > keyword` [#](#data-service--keyword)
 
@@ -1461,6 +1512,17 @@ List of themes or categories for the data service
 
 **Each item of this array must be:**
 - [Concept](/standards/catalog/dcat-us-3/identifiers-and-relationships/#concept): A controlled term or label, optionally drawn from a concept scheme
+
+## <a name="data-service--useRestriction"></a>`DataService > useRestriction` [#](#data-service--useRestriction)
+
+**Requirement:** Optional
+
+List of use restrictions related to the data service
+
+- **Type**: null or array of [UseRestriction](/standards/catalog/dcat-us-3/constraints-and-restrictions/#use-restriction) classes
+
+**Each item of this array must be:**
+- [UseRestriction](/standards/catalog/dcat-us-3/constraints-and-restrictions/#use-restriction): Rules or legal limits on how a resource may be used
 
 ## <a name="data-service--wasUsedBy"></a>`DataService > wasUsedBy` [#](#data-service--wasUsedBy)
 
