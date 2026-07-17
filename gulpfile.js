@@ -2,7 +2,6 @@ const { src, pipe, dest, series, parallel, watch } = require('gulp');
 const uswds = require("@uswds/compile");
 
 var browserify = require('browserify');
-var sourcemaps = require('gulp-sourcemaps');
 var uglify = require('gulp-uglify')
 var gulpif = require('gulp-if');
 var source = require('vinyl-source-stream');
@@ -28,8 +27,6 @@ function jsTask() {
         .pipe(source(paths.js.dest))
         .pipe(buffer())
         .pipe(gulpif(isProd, uglify()))
-        .pipe(gulpif(!isProd, sourcemaps.init({ loadMaps: true })))
-        .pipe(gulpif(!isProd, sourcemaps.write('.')))
         .pipe(dest("_site"));
 };
 
