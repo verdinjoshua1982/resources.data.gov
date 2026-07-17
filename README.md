@@ -37,11 +37,10 @@ significant changes to the site that require partner review.
 
 ### Prerequisites
 
-- [Ruby 3.1.4](https://www.ruby-lang.org/)
-- [Bundler 1.17.x](https://bundler.io/) (we use an older version for Federalist
-  compatibility)
-    - install via `gem install bundler -v 1.17.3`
-    - use version by `bundle _1.17.3_ ...`
+- [Ruby 3.2.11](https://www.ruby-lang.org/)
+- [Bundler 2.3.26](https://bundler.io/)
+    - install via `gem install bundler -v 2.3.26`
+    - use version by `bundle _2.3.26_ ...`
 - [Node.js 20](https://nodejs.org/)
 
 
